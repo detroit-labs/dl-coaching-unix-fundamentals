@@ -1,0 +1,70 @@
+#+TITLE:  Unix Fundamentals
+#+AUTHOR: Nathan Dotz
+#+DATE:   Detroit Labs Dev Coaching 2017
+#+EMAIL:  ndotz@detroitlabs.com
+#+LANGUAGE:  en
+
+* Course Overview
+  This course introduces Unix tools to experienced computer
+  users. This course covers an orientation to Linux and Unix; using
+  the Unix file system; text and data processing; standard Unix
+  utilities; file and directory structure and the commands for
+  managing and manipulating them; and a brief introduction to standard
+  Unix text editors and mail systems.
+* Course Objectives
+  Students completing this course will be able to:
+  - Understand basic functions and concepts of Unix-based operating
+    systems.
+  - Understand the Unix file system and directory structure.
+  - Manage Unix files and directories.
+  - Use standard Unix text-processing utilities.
+  - Understand and utilize Unix stream processing utilities.
+  - Understand and utilize I/O redirection.
+  - Use standard Unix editors.
+  - Create shell scripts which utilize positional parameters and
+    arguments.
+
+* Course Materials
+  Shell Programming in Unix, Linux, and Mac OSX by Kochan and Wood,
+  4th Edition. ISBN 978-0134496009
+
+* Course Outline
+** Session 1 - Hello, Unix!
+   - History of Unix/Linux
+   - What is an Operating System?
+   - What is a shell?
+   - Unix file systems
+   - Globbing
+   - Intro to filters and input piping
+   - Book chapters 1-3
+** Session 2 - Manipulating text and variables
+   - Text editor basics
+   - Regular Expressions
+   - Text filtering utilities
+   - Variables and evaluation
+   - Book chapters 4-5
+** Session 3 - Interacting with programs and conditionals
+   - Quote evaluation
+   - Command arguments
+   - Special shell variables
+   - Test and conditionals
+   - Exit codes
+   - Pattern matching
+   - Book chapters 6-8
+** Session 4 - Loops and the Environment
+   - Iteration and loop control
+   - Background processes
+   - I/O redirection
+   - Script arguments
+   - Text as data
+   - The shell's environment
+   - Book chapters 9-11
+** Session 5 - Making your programs useful
+   - Parameters
+   - Shell options and set
+   - Shell process control
+   - Unix signals and trapping
+   - Advanced piping and I/O redirection
+   - Writing dynamic shell scripts
+   - Advanced shell features
+   - Book chapters 12-15

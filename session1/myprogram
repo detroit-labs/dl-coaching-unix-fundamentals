@@ -1,0 +1,6 @@
+echo "Check out all your fancy files!"
+ls -l
+echo
+echo -n "You ran this program at "
+date
+echo "Have a good day!"
