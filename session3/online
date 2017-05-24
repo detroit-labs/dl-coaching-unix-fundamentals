@@ -1,0 +1,5 @@
+user=$1
+if who | grep "$user"
+then
+  echo "$user is online"
+fi

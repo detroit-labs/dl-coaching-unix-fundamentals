@@ -1,0 +1,6 @@
+if [ $1 = "bob" ]
+then
+  echo "hey it is bob"
+else
+  echo "nope not bob"
+fi
