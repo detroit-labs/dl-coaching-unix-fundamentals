@@ -287,8 +287,7 @@ construct.
 When dealing with arguments to a shell script, the shell assigns
 special variables to capture and handle arguments.
 
-    echo $# arguments passed
-    echo arg 1 = :$1: arg 2 = :$2: arg 3 = :session3$ cat args
+    session3$ cat args
     echo $# arguments passed
     echo arg 1 = :$1: arg 2 = :$2: arg 3 = :$3:
     session3$ ./args a b c
@@ -299,7 +298,7 @@ special variables to capture and handle arguments.
     arg 1 = :a: arg 2 = :b: arg 3 = ::
     session3$ ./args
     0 arguments passed
-    arg 1 = :: arg 2 = :: arg 3 = ::$3:
+    arg 1 = :: arg 2 = :: arg 3 = ::
 
 `$#` stores the number of arguments provided to a shell script.
 `$1`, `$2` and so on with the ordinal variables store each argument.
