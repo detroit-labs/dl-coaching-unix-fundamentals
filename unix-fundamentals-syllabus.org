@@ -36,30 +36,32 @@
    - Unix file systems
    - Globbing
    - Intro to filters and input piping
-   - Book chapters 1-3
+   - Book chapters 1-2
 ** Session 2 - Manipulating text and variables
    - Text editor basics
    - Regular Expressions
    - Text filtering utilities
    - Variables and evaluation
-   - Book chapters 4-5
+   - Book chapters 3-4
 ** Session 3 - Interacting with programs and conditionals
    - Quote evaluation
    - Command arguments
    - Special shell variables
+   - Book chapters 5-6
+** Session 4 - Conditionals and Loops
    - Test and conditionals
    - Exit codes
    - Pattern matching
-   - Book chapters 6-8
-** Session 4 - Loops and the Environment
    - Iteration and loop control
    - Background processes
    - I/O redirection
+   - Book chapters 7-8
+** Session 5 - Loops and the Environment
    - Script arguments
    - Text as data
    - The shell's environment
-   - Book chapters 9-11
-** Session 5 - Making your programs useful
+   - Book chapters 9-10
+** Session 6 - Making your programs useful
    - Parameters
    - Shell options and set
    - Shell process control
@@ -67,4 +69,4 @@
    - Advanced piping and I/O redirection
    - Writing dynamic shell scripts
    - Advanced shell features
-   - Book chapters 12-15
+   - Book chapters 11-14

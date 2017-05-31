@@ -1,0 +1,7 @@
+case $1 in
+  1) echo "you are number 1"; echo "good job.";;
+  2) echo "i like you two";;
+  [0-9]) echo "those look like numbers";;
+  "outside") echo "how about match?";;
+  *) echo "wat.";;
+esac

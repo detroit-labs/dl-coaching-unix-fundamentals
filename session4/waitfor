@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+if [ $# -ne 1 ]
+then
+    echo "Usage: waitfor username"
+    exit 1
+fi
+
+user="$1"
+
+until who | grep "^$user " > /dev/null
+do
+    sleep 60
+done
+
+echo "$user has come online!"

@@ -1,0 +1,9 @@
+if [ $1 = "bob" ]
+then
+  echo "hey it is bob"
+elif [ $1 = "BOB" ]
+then
+  echo "OH HI BOB"
+else
+  echo "nope not bob"
+fi
