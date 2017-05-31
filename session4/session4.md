@@ -510,23 +510,33 @@ commands. Unlike `break`, `continue` does not exit the loop. Rather,
 `continue` skips the remaining commands in the block and goes back to
 the test condition or next value.
 
-session4$ for i in 1 2 3 4 5 6
-> do
->   if [ $((i % 2)) -eq 0 ]
->   then
->     echo "$i is even"
->   else
->     continue
->   fi
-> done
-2 is even
-4 is even
-6 is even
+    session4$ for i in 1 2 3 4 5 6
+    > do
+    >   if [ $((i % 2)) -eq 0 ]
+    >   then
+    >     echo "$i is even"
+    >   else
+    >     continue
+    >   fi
+    > done
+    2 is even
+    4 is even
+    6 is even
 
 ----------------------------------------------------------------------------
 
-LOOP BACKGROUND PROCESSING
-->  <-
+
+-> Loop Background Processing <-
+================================
+
+Modifiers that are normally placed after a command such as `&` for
+sending a process to the background or I/O redirection can be placed
+after the `done` statement of a loop and effect the whole loop statement.
+
+    for i in 1 2 3 4 5
+    do
+      echo $i
+    done &
 
 ----------------------------------------------------------------------------
 
@@ -553,5 +563,3 @@ LOOP BACKGROUND PROCESSING
     session4$ for i in 1 2 3 4 5; do echo $i
     > done | wc -l
            5
-
-----------------------------------------------------------------------------
