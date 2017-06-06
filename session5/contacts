@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo 'Manage your phonebook'
+echo -e '
+     Choose an option:
+     1. Find a number
+     2. Add an entry
+     3. Remove an entry
+
+Enter your choice: \c'
+read selection
+
+echo
+case $selection in
+
+    1) echo -e "Enter a name to look up: \c"
+       read name
+       grep -i "$name" phonebook;;
+    2) read -p "Enter the name to add: " name
+       read -p "Enter a phone number: " number
+       echo "$name	$number" >> phonebook
+       sort -o phonebook phonebook;;
+    3) read -p "Enter the name to remove: " name
+       grep -v "$name" phonebook > /tmp/phonebook
+       mv /tmp/phonebook phonebook;;
+    *) echo "That is not an option.";;
+esac

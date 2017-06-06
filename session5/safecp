@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ ! $# -eq 2 ]
+then
+    echo "Usage: safecp source destination"
+    exit 1
+fi
+
+source=$1
+dest=$2
+
+if [ -e $dest ]
+then
+    echo -e "$dest exists. Overwrite? (y/n) \c"
+    read answer
+    if [ "$answer" != "y" ]
+    then
+        echo "Copy aborted."
+        exit 0
+    fi
+fi
+
+cp $source $dest

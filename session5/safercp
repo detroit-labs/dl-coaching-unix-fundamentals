@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+numargs=$#
+filelist=
+filestocopy=
+
+while [ "$#" -gt 1 ]
+do
+    filelist="$filelist $1"
+    shift
+done
+
+dest="$1"
+
+if [ "$numargs" -lt 2 -o "$numargs" -gt 2 -a ! -d "$dest" ]
+then
+    echo "Usage: safercp file1 file2"
+    echo "       safercp file[s] dir"
+    exit 1
+fi
+
+for file in $filelist
+do
+    if [ -d "dest" ]
+    then
+        destfile="dest/$(basename $file)"
+    else
+        destfile="dest"
+    fi
+
+    if [ -e "$destfile" ]
+    then
+        echo -e "$destfile already exists. Overwrite? (y/n) \c"
+        read answer
+        if [ "$answer" = "y" ]
+        then
+            filestocopy="$filestocopy $file"
+        fi
+    else
+        filestocopy="$filestocopy $file"
+    fi
+done
+
+if [ -n "$filestocopy" ]
+then
+    cp $filestocopy dest
+fi
