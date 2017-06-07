@@ -1,0 +1,1 @@
+echo "The value of variable x is $x"

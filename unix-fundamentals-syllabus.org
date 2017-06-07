@@ -57,6 +57,7 @@
    - I/O redirection
    - Book chapters 7-8
 ** Session 5 - Loops and the Environment
+   - Interactive scripts
    - Script arguments
    - Text as data
    - The shell's environment

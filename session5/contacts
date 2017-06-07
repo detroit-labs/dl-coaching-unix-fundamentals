@@ -21,7 +21,7 @@ case $selection in
        echo "$name	$number" >> phonebook
        sort -o phonebook phonebook;;
     3) read -p "Enter the name to remove: " name
-       grep -v "$name" phonebook > /tmp/phonebook
-       mv /tmp/phonebook phonebook;;
+       grep -v "$name" phonebook > /tmp/phonebook$$
+       mv /tmp/phonebook$$ phonebook;;
     *) echo "That is not an option.";;
 esac

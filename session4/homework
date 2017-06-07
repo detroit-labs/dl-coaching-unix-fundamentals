@@ -1,0 +1,88 @@
+1. Write a program called valid that prints “yes” if its argument is a
+valid shell variable name and “no” otherwise: 
+
+$ valid foo_bar yes
+$ valid 123 no
+
+(Hint: Define a regular expression for a valid variable name and then
+enlist the aid of grep or sed.)
+
+2. Write a program called t that displays the time of day in a.m. or
+p.m. notation rather than in 24-hour clock time. Here’s an example
+showing t run at night:
+
+$ date Wed Aug 28 19:34:01 EDT 2002
+$ t 7:34 pm
+
+Use the shell’s built-in integer arithmetic to convert from 24-hour
+clock time. Then rewrite the program to use a case command
+instead. Rewrite it again to perform arithmetic with the expr command.
+
+3. Write a program called mysed that applies the sed script given as
+the first argument against the file given as the second. If the sed
+succeeds (that is, exit status of zero), replace the original file
+with the modified one. So mysed '1,10d' text will use sed to delete
+the first 10 lines from text, and, if successful, will replace text
+with the modified file.
+
+4. Write a program called isyes that returns an exit status of 0 if
+its argument is “yes,” and 1 otherwise. For purposes of this exercise,
+consider y, yes, Yes, YES, and Y all to be valid “yes” arguments:
+
+$ isyes yes
+$ echo $?
+0
+$ isyes no
+$ echo $?
+1
+
+Write the program using an if command and then rewrite it using a case
+command. This program can be useful when reading yes/ no responses
+from the terminal (which you’ll learn about in Chapter 10, “Reading
+and Printing Data”).
+
+5. Use the date and who commands to write a program called conntime
+that prints the number of hours and minutes that a user has been
+logged on to the system (assume that this is less than 24 hours).
+
+
+6. Modify the prargs program to precede each argument by its
+number. So typing prargs a 'b c' d should give the following output:
+1: a 2: b c 3: d
+
+7. Modify the waitfor program to also print the tty number that the user
+logs on to. That is, the output should say "sandy logged onto tty13"
+if sandy logs on to tty13.
+
+8. Add a -f option to waitfor to have it periodically check for the
+existence of a file (ordinary file or directory) instead of for a user
+logging on. So typing "waitfor -f /usr/spool/uucppublic/steve/newmemo &"
+should cause waitfor to periodically check for the existence of the
+indicated file and inform you when it does (by displaying a message or
+by mail if the -m option is also selected).
+
+9. Add a -n option to waitfor that inverts the waitforitoring
+function. So "waitfor -n sandy" checks for sandy logging off the
+system, and "waitfor -n -f /tmp/dataout &" periodically checks for the
+removal of the specified file.
+
+10. Write a program called collect that runs in the background and
+counts the number of users logged in at the end of each
+interval. Allow the interval to be specified with a -t option (see the
+previous exercise), with the default 10 minutes.
+
+11. Write a shell program called wgrep that searches a file for a given
+pattern, just as grep does. For each line in the file that matches,
+print a “window” around the matching line. That is, print the line
+preceding the match, the matching line, and the line following the
+match. Be sure to properly handle the special cases where the pattern
+matches the first line of the file and where the pattern matches the
+last line of the file.
+
+12. Modify wgrep to take an optional -w option that specifies the
+window size; so wgrep -w 3 UNIX text should print three lines before
+and after each line from text that contains the pattern UNIX.
+
+13. Modify wgrep to take a variable number of filenames as
+arguments. Precede each output line with the name of the file in which
+the match occurs (as grep does).

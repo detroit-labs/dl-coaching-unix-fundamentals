@@ -13,7 +13,7 @@
 =======================
 
 -> Session 4 <-
-------------------
+---------------
 
 -> A Detroit Labs Developer Coaching Course <-
 
@@ -142,7 +142,7 @@ There are many operators for `test`, but some of the most common for
 dealing with strings are:
 
 test *string* = *string*  | true if two strings are the same
-test *string* != *string*  | true if two strings are not the same
+test *string* \!= *string* | true if two strings are not the same
 test *string*           | true if string is not empty
 test -n *string*        | true if string is not empty, and also exists
 test -z *string*        | true if string is empty, but exists
