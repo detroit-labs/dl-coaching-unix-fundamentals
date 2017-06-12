@@ -21,11 +21,11 @@ fi
 
 for file in $filelist
 do
-    if [ -d "dest" ]
+    if [ -d "$dest" ]
     then
-        destfile="dest/$(basename $file)"
+        destfile="$dest/$(basename $file)"
     else
-        destfile="dest"
+        destfile="$dest"
     fi
 
     if [ -e "$destfile" ]
