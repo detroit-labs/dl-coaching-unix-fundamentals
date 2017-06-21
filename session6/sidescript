@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+command=${0#./}
+
+if [ "$command" = "left" ]
+then
+    echo "I am left script!"
+elif [ "$command" = "right" ]
+then
+    echo "I am right script!"
+else
+    echo "Usage: call either left or right, not me."
+    echo "You called $0"
+fi
