@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+source="$1"
+search="$2"
+
+find "$source" -name "$search" > searchfile.tmp &
+pid="$!"
+date
+trap "echo 'User cancelled. Cleaning up.'; kill $pid" 2
+wait $pid
+date
+[ -f searchfile.tmp ] && cat searchfile.tmp
+rm searchfile.tmp
