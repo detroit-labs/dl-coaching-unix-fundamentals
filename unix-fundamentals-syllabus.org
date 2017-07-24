@@ -29,45 +29,60 @@
   4th Edition. ISBN 978-0134496009
 
 * Course Outline
-** Session 1 - Hello, Unix!
+** Session 1 -
    - History of Unix/Linux
    - What is an Operating System?
+   Chapter 1
    - What is a shell?
    - Unix file systems
    - Globbing
    - Intro to filters and input piping
-   - Book chapters 1-2
-** Session 2 - Manipulating text and variables
+** Session 2 -
+   Chapter 2
+   - Background processes
+   - Command Execution
+   - Command Parsing
    - Text editor basics
+** Session 3 -
+   Chapter 3
    - Regular Expressions
    - Text filtering utilities
+** Session 4 -
+   Chapter 4
    - Variables and evaluation
-   - Book chapters 3-4
-** Session 3 - Interacting with programs and conditionals
+   Chapter 5
    - Quote evaluation
+** Session 5 -
+   Chapter 6
    - Command arguments
    - Special shell variables
-   - Book chapters 5-6
-** Session 4 - Conditionals and Loops
+   Chapter 7
    - Test and conditionals
    - Exit codes
    - Pattern matching
+** Session 6 -
+   Chapter 8
    - Iteration and loop control
    - Background processes
    - I/O redirection
-   - Book chapters 7-8
-** Session 5 - Loops and the Environment
+** Session 7 -
+   Chapter 9
    - Interactive scripts
    - Script arguments
    - Text as data
+** Session 8 -
+   Chapter 10
    - The shell's environment
-   - Book chapters 9-10
-** Session 6 - Making your programs useful
+   Chapter 11
    - Parameters
    - Shell options and set
    - Shell process control
+** Session 9 -
+   Chapter 12
    - Unix signals and trapping
    - Advanced piping and I/O redirection
    - Writing dynamic shell scripts
    - Advanced shell features
-   - Book chapters 11-14
+** Session 10 -
+   - Wrap up
+   - Final homework
