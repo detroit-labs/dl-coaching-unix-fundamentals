@@ -398,9 +398,52 @@ The `:q` command is short for *quit* and exits the editor.
 Let's explore the `vi` editor.
 
 ----------------------------------------------------------------------------
-=
+
 -> Text display tools with vi key bindings <-
 ============================================
 
 One of the reasons to go over navigating in `vi` so extensively is
-that it is not the only tool to use these key bindings.
+that it is not the only tool to use these key bindings. The `less`
+text display tool uses the same key bindings to navigate as `vi`'s
+normal mode. This is the same text display tool used to display *the
+manual*.
+
+`less wifi.log`
+
+`man date`
+
+----------------------------------------------------------------------------
+
+-> RTFM <-
+==========
+
+Since we're on the subject, Unix systems generally include an
+extensive *manual* for nearly every command included with the
+operating system.
+
+To get information on a specific command that you know, pass it as an
+argument to `man`.
+
+`man date`
+
+Commands and their descriptions are searchable through the `apropos`
+command.
+
+`apropos echo`
+
+    builtin(1), echo(1), until(1), wait(1)  - shell built-in commands
+    echo(1)                  - write arguments to the standard output
+    lessecho(1)              - expand metacharacters
+
+----------------------------------------------------------------------------
+
+-> RTFM <-
+==========
+
+After using `apropos` or in the "SEE ALSO" section of a man page, you
+may notice a *section* number after the entry for a command. If you
+want to reference a specific a specific section number, provide it as
+an argument to man before the command you are looking for the entry
+for.
+
+`man 1 echo`
