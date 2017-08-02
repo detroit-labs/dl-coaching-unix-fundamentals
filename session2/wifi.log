@@ -1,0 +1,99 @@
+Fri Jul 28 01:56:00.258 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Fri Jul 28 01:56:00.258 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Fri Jul 28 01:56:00.258 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Fri Jul 28 01:56:00.258 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 01:56:00.817 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 01:56:00.958 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Fri Jul 28 01:56:45.976 <kernel> wl0: TCPKEEP: locate_keepalive_data_new_uc: No IPV4 addrs, keepalive not started.
+Fri Jul 28 01:56:45.976 <kernel> wl0: MDNS: IPV4 Addr: 192.168.1.126
+Fri Jul 28 01:56:45.976 <kernel> wl0: MDNS: IPV6 Addr: fe80:0:0:0:1889:c0ee:76b8:2c71
+Fri Jul 28 01:56:45.976 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:89c:70d8:1ee1:77ff
+Fri Jul 28 01:56:45.976 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:b038:420f:5e9:f17c
+Fri Jul 28 01:56:45.976 <kernel> wl0: MDNS: 2 SRV Recs, 1 TXT Recs
+Fri Jul 28 01:56:45.976 <kernel> wl0: MDNS: 1 TCP ports:  22 
+Fri Jul 28 03:56:50.247 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Fri Jul 28 03:56:50.247 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Fri Jul 28 03:56:50.247 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Fri Jul 28 03:56:50.247 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 03:56:50.800 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Fri Jul 28 03:57:51.110 <kernel> wl0: TCPKEEP: locate_keepalive_data_new_uc: No IPV4 addrs, keepalive not started.
+Fri Jul 28 03:57:51.110 <kernel> wl0: MDNS: IPV4 Addr: 192.168.1.126
+Fri Jul 28 03:57:51.110 <kernel> wl0: MDNS: IPV6 Addr: fe80:0:0:0:1889:c0ee:76b8:2c71
+Fri Jul 28 03:57:51.110 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:89c:70d8:1ee1:77ff
+Fri Jul 28 03:57:51.110 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:b038:420f:5e9:f17c
+Fri Jul 28 03:57:51.110 <kernel> wl0: MDNS: 2 SRV Recs, 1 TXT Recs
+Fri Jul 28 03:57:51.111 <kernel> wl0: MDNS: 1 TCP ports:  22 
+Fri Jul 28 05:57:56.243 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Fri Jul 28 05:57:56.243 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Fri Jul 28 05:57:56.243 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Fri Jul 28 05:57:56.243 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 05:57:56.792 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Fri Jul 28 05:58:41.920 <kernel> wl0: TCPKEEP: locate_keepalive_data_new_uc: No IPV4 addrs, keepalive not started.
+Fri Jul 28 05:58:41.920 <kernel> wl0: MDNS: IPV4 Addr: 192.168.1.126
+Fri Jul 28 05:58:41.920 <kernel> wl0: MDNS: IPV6 Addr: fe80:0:0:0:1889:c0ee:76b8:2c71
+Fri Jul 28 05:58:41.920 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:89c:70d8:1ee1:77ff
+Fri Jul 28 05:58:41.920 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:b038:420f:5e9:f17c
+Fri Jul 28 05:58:41.920 <kernel> wl0: MDNS: 2 SRV Recs, 1 TXT Recs
+Fri Jul 28 05:58:41.920 <kernel> wl0: MDNS: 1 TCP ports:  22 
+Fri Jul 28 07:58:46.247 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Fri Jul 28 07:58:46.247 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Fri Jul 28 07:58:46.247 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Fri Jul 28 07:58:46.247 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 07:58:46.776 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Fri Jul 28 07:59:31.907 <kernel> wl0: TCPKEEP: locate_keepalive_data_new_uc: No IPV4 addrs, keepalive not started.
+Fri Jul 28 07:59:31.907 <kernel> wl0: MDNS: IPV4 Addr: 192.168.1.126
+Fri Jul 28 07:59:31.907 <kernel> wl0: MDNS: IPV6 Addr: fe80:0:0:0:1889:c0ee:76b8:2c71
+Fri Jul 28 07:59:31.907 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:89c:70d8:1ee1:77ff
+Fri Jul 28 07:59:31.907 <kernel> wl0: MDNS: IPV6 Addr: 2602:301:7733:1380:b038:420f:5e9:f17c
+Fri Jul 28 07:59:31.907 <kernel> wl0: MDNS: 2 SRV Recs, 1 TXT Recs
+Fri Jul 28 07:59:31.907 <kernel> wl0: MDNS: 1 TCP ports:  22 
+Fri Jul 28 08:51:37.024 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Fri Jul 28 08:51:37.024 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Fri Jul 28 08:51:37.024 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Fri Jul 28 08:51:37.320 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 08:51:37.390 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events.private, will not register for event type 100
+Fri Jul 28 08:51:37.390 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events.private, will not register for event type 101
+Fri Jul 28 08:51:37.390 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Fri Jul 28 08:51:37.390 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Fri Jul 28 08:51:37.390 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Fri Jul 28 08:51:37.427 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Fri Jul 28 08:51:37.427 <airportd[80]> ERROR: loginwindow (125) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Fri Jul 28 08:51:37.869 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Fri Jul 28 08:51:38.130 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Fri Jul 28 08:51:38.130 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Fri Jul 28 08:51:38.131 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Fri Jul 28 08:51:38.131 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 3
+Fri Jul 28 08:51:38.132 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Fri Jul 28 08:51:38.133 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Fri Jul 28 08:51:38.133 <airportd[80]> ERROR: WiFiProxy (863) is not entitled for com.apple.wifi.events, but allowing anyways for event type 8
+Fri Jul 28 08:52:40.212 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 09:02:29.834 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 09:12:39.834 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 09:22:29.809 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 09:32:29.809 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 09:42:29.796 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 09:52:29.791 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 10:02:39.781 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 10:12:39.741 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 10:22:29.748 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 10:32:29.743 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 10:41:34.734 <kernel> AWDL Sync Enabled 1, data path state[1]
+Fri Jul 28 10:41:42.433 <kernel> AWDL Sync Enabled 0, data path state[1]
+Fri Jul 28 10:42:29.735 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 10:52:29.720 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 11:02:29.709 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 11:12:39.660 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 11:22:29.662 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 11:32:29.641 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 11:42:29.623 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 11:52:29.602 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 12:02:29.648 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 12:12:34.634 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 12:22:39.619 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 12:32:29.604 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 12:42:34.890 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 12:52:39.549 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 13:02:29.517 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 13:12:29.517 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 13:22:29.503 <kernel> IO80211Interface::updateReport _peerManager is missing
+Fri Jul 28 13:32:29.491 <kernel> IO80211Interface::updateReport _peerManager is missing
