@@ -319,6 +319,7 @@ There are shortcuts for moving around faster in normal mode.
 
 `^` moves to the beginning of a line
 `$` moves to the end of the line
+`w` will take you forward one WORD.
 `b` will take you BACK one word.
 `e` will take you to the END of the current or next word.
 `gg` will take you to the beginning of the file.
@@ -342,6 +343,25 @@ the text was removed.
 
 Perhaps unsurprisingly, pressing `ESC` will end visual mode and take
 you back to normal mode.
+
+----------------------------------------------------------------------------
+
+-> The vi Editor <-
+===================
+
+Any text deleted by the use of `x`, `d`, or `c` is copied to a *yank
+register*, the modern equivalent of which would be called a
+*clipboard*. The text can be inserted back into the document by
+pressing `p` while in normal mode. Text can be *yanked*, that is put
+in the yank register by pressing `y` with the text selected.
+
+Additionally, whole lines can be deleted or yanked.
+
+`yy` will yank a whole line.
+`dd` will delete a whole line.
+
+These lines can then be placed back into the text with `p` (paste) or
+`P` (paste behind).
 
 ----------------------------------------------------------------------------
 
@@ -384,6 +404,9 @@ options such as `number`, which turns on line numbers.
 
 `:set number` will turn on line numbers.
 `:set nonumber` will turn off line numbers.
+
+`:set ruler` will turn on the position indicator.
+`:set noruler` will turn off the position indicator.
 
 `:set all` will show a rather extensive list of current settings.
 
