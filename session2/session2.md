@@ -24,7 +24,7 @@
 
 The *kernel* is the brain of the Unix system. At boot time, the kernel
 is loaded from the disk into *memory* where it resides, convincing the
-CPU to process thing on behalf of the Unix system and its users.
+CPU to process things on behalf of the Unix system and its users.
 
 Aside from a few services and daemons launched and left running at
 after the system loads, the rest of the operating system's *programs*
