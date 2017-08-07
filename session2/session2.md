@@ -49,7 +49,7 @@ you're going to need to know how the system uses it for you.
   before exiting
 
 Most ttys these days are *pseudo tty*'s, as classic hardware terminals
-that physically connect to Unix machines become exceedingly
+that physically connect to Unix machines have become exceedingly
 rare. These used to represent actual physical devices on the Unix
 system.
 
