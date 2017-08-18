@@ -22,22 +22,43 @@
 -> Writing Programs <-
 ======================
 
+To turn a command or set of commands into a script or *program* so
+that it can act as a command all on its own, we can place the full
+text of the commands into a file.
+
     session4$ cat > nu
     who | wc -l
     # ^D
+
+However, attempting to execute a newly created script is almost
+certain to cause an error.
+
     session4$ ./nu
     bash: ./nu: Permission denied
+
+----------------------------------------------------------------------------
+
+-> Writing Programs <-
+======================
 
 Because we just created `nu` as a regular text file, we don't have
 permission to run it as a program.
 
     session4$ ls -l nu
     -rw-r--r--  1 sleepynate  staff  12 May 16 21:44 nu
+
+As discussed in session 1, we can resolve this problem by letting the
+file system know that this file is actually executable.
+
     session4$ chmod +x nu
     session4$ ls -l nu
     -rwxr-xr-x  1 sleepynate  staff  12 May 16 21:44 nu
     session4$ ./nu
         4
+
+By default, shells without a *shebang* ( `#!` ) will execute as commands
+in the user's default shell. We will see how to change this behavior
+in session 5.
 
 ----------------------------------------------------------------------------
 
@@ -169,10 +190,10 @@ characters, specifically `$`, `\\` and `\``.
     She is swell on C shells by the sea, sure.
     session4$ text='* is all your files, basically'
     session4$ echo $text
-    phonebook session4.md is all your files, basically
+    exercise4.md phonebook secure.log session4.md is all your files, basically
     session4$ x=*
     session4$ echo $x
-    phonebook session4.md
+    exercise4.md phonebook secure.log session4.md
     session4$ echo '$x'
     $x
     session4$ echo "$x"
@@ -192,7 +213,7 @@ characters, specifically `$`, `\\` and `\``.
     others, line too.
 
     session4$ echo $text
-    phonebook session4.md is all your files, basically
+    exercise4.md phonebook secure.log session4.md is all your files, basically
     session4$ echo "$text"
     \* is all your files, basically
 
@@ -225,7 +246,7 @@ command line.
 
     session4$ x=*
     session4$ echo $x
-    phonebook session4.md
+    exercise4.md phonebook secure.log session4.md
     session4$ echo \$x
     $x
 
@@ -320,7 +341,7 @@ capture the results of executing a command in a variable.
 
     session4$ myfiles=$(ls)
     session4$ echo $myfiles
-    phonebook session4.md
+    exercise4.md phonebook secure.log session4.md
 
 ----------------------------------------------------------------------------
 
