@@ -71,14 +71,16 @@ the value that we want to store in that variable.
 
     session4$ count=1
     session4$ my_bin=~/.bin
+
+After creating a variable, we can reference this identifier by
+preceding it with a dollar sign `$`.
+
     session4$ echo $my_bin
     /Users/sleepynate/.bin
-
     session4$ cd $my_bin
     .bin$ pwd
     /Users/sleepynate/.bin
     .bin$
-
     session4$ echo $count $count $count $count
     1 1 1 1
 
@@ -171,7 +173,7 @@ Single quotes prevent evaluation of any special characters by the shell.
     session4$ echo '$file'
     $file
     session4$ echo *
-    phonebook session4.md
+    exercise4.md phonebook secure.log session4.md
     session4$ echo '*'
     *
     session4$ echo '< > | ; ( ) { } > > " ` &'
