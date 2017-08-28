@@ -19,367 +19,389 @@
 
 ----------------------------------------------------------------------------
 
--> The read Command <-
-======================
+-> Dealing with arguments <-
+============================
 
-The `read` command takes one or more arguments and then reads from
-standard input. Data provided to `read` from standard input are
-considered whitespace-delimited and are assigned to variables in the
-current environment using the symbols provided as arguments
-respectively.
+When dealing with arguments to a shell script, the shell assigns
+special variables to capture and handle arguments.
 
-This is often used to interact with a user while a program is running.
+    session5$ cat args
+    echo $# arguments passed
+    echo arg 1 = :$1: arg 2 = :$2: arg 3 = :$3:
+    session5$ ./args a b c
+    3 arguments passed
+    arg 1 = :a: arg 2 = :b: arg 3 = :c:
+    session5$ ./args a b
+    2 arguments passed
+    arg 1 = :a: arg 2 = :b: arg 3 = ::
+    session5$ ./args
+    0 arguments passed
+    arg 1 = :: arg 2 = :: arg 3 = ::
 
-    session5$ read a
-    10
-    session5$ echo $a
-    10
-    session5$ read x y
-    3 6 9
-    session5$ echo $x
-    3
-    session5$ echo $y
-    6 9
+`$#` stores the number of arguments provided to a shell script.
+`$1`, `$2` and so on with the ordinal variables store each argument.
 
 ----------------------------------------------------------------------------
 
--> The read Command <-
+-> Dealing with arguments <-
+============================
+
+The `$*` special variable captures the entire argument list for a
+script as a string.
+
+    session5$ cat args2
+    echo $# arguments passed
+    echo they are :$*:
+    session5$ ./args2
+    0 arguments passed
+    they are ::
+    session5$ ./args2 a b c d e
+    5 arguments passed
+    they are :a b c d e:
+
+----------------------------------------------------------------------------
+
+-> Exercise <-
+==============
+
+Can we write a script that adds entries to the phonebook?
+
+----------------------------------------------------------------------------
+
+-> Exercise <-
+==============
+
+Can we write a script that removes entries from the phonebook?
+
+----------------------------------------------------------------------------
+
+-> Exit status <-
+=================
+
+Every process in Unix emits an *Exit Code* back to the process which
+spawned it when it ends. This status is a number intended to indicate
+the success or failure of a command. By convention, a `0` exit status
+indicates success, whereas any other value indicates an error of some
+kind. Often, specific exit statuses that are the result of errors are
+listed in a command's manual page.
+
+The exit status of the last command executed by a shell is stored in
+the `$?` variable.
+
+    session5$ echo "derp"
+    derp
+    session5$ echo $?
+    0
+    session5$ grep derp phonebook
+    session5$ echo $?
+    1
+
+----------------------------------------------------------------------------
+
+-> The if Construct <-
 ======================
 
-    session5$ cat safecp
-    #!/usr/bin/env bash
-    if [ ! $# -eq 2 ]
+The `if` construct is a mechanism we use to make decisions when
+programming the shell. The `if` construct uses the exit status of
+commands provided to it to choose branches of logic to execute.
+The `if` statement's general structure is as follows:
+
+if *command*
+then
+  *command1*
+  *command2*
+fi
+
+----------------------------------------------------------------------------
+
+-> The if Construct <-
+======================
+
+    session5$ cat online
+    user=$1
+    if who | grep "$user"
     then
-        echo "Usage: safecp source destination"
-        exit 1
+    echo "$user is online"
     fi
-    source=$1
-    dest=$2
-    if [ -e $dest ]
-    then
-        echo "$dest exists. Overwrite? (y/n) \c"
-        read answer
-        if [ "$answer" != "y" ]
-        then
-            echo "Copy aborted."
-            exit 0
-        fi
-    fi
-    cp $source $dest
+    session5$ ./online sleepynate
+    sleepynate   console  May 24 07:34
+    sleepynate   ttys000  May 24 07:40
+    sleepynate is online
+    session5$ ./online barney
+
+Unfortunately, the default output of the commands makes our script
+look a little unprofessional here.
 
 ----------------------------------------------------------------------------
 
--> The read Command <-
+-> The if Construct <-
 ======================
 
-    session5$ ./safecp ../session4/online myscript
-    session5$ ./safecp ../session4/online myscript
-    myscript exists. Overwrite? (y/n) y
-    session5$ ./safecp ../session4/online myscript
-    myscript exists. Overwrite? (y/n) n
-    Copy aborted.
+    session5$ cat online2
+    user=$1
+    if who | grep "^$user " > /dev/null
+    then
+    echo "$user is online"
+    fi
+    session5$ ./online2 barney
+    session5$ ./online2 sleepynate
+    sleepynate is online
+
+We can capture the output of commands we don't want the output from
+with the special null device.
 
 ----------------------------------------------------------------------------
 
--> Extended echo Characters <-
+-> The test Command <-
+======================
+
+Often, when creating programs, we'll want to test some criteria for
+which there is no specific command. This is why the shell built-in
+`test` exists.
+
+Like `expr`, `test` takes a variety of expressions. `test` returns an
+exit status representing whether the expression provided to it holds
+true or not.
+
+    session5$ test "bob" = "bob"
+    session5$ echo $?
+    0
+    session5$ test "bob" = "tom"
+    session5$ echo $?
+    1
+
+----------------------------------------------------------------------------
+
+-> The test Command <-
+======================
+
+You'll notice that paying special attention to quoting will be a
+common theme throughout the process of learning shell programming.
+
+    session5$ name="bob"
+    session5$ test $name = "bob"
+    session5$ echo $?
+    0
+    session5$ name=
+    session5$ test $name = "bob"
+    bash: test: =: unary operator expected
+    session5$ test "$name" = "bob"
+    session5$ echo $?
+    1
+
+----------------------------------------------------------------------------
+
+-> The test Command <-
+======================
+
+There are many operators for `test`, but some of the most common for
+dealing with strings are:
+
+test *string* = *string*  | true if two strings are the same
+test *string* \!= *string* | true if two strings are not the same
+test *string*           | true if string is not empty
+test -n *string*        | true if string is not empty, and also exists
+test -z *string*        | true if string is empty, but exists
+
+----------------------------------------------------------------------------
+
+-> The test Command <-
+======================
+
+    session5$ cat isitbob
+    if test $1 = "bob"
+    then
+        echo "hey it is bob"
+    else
+        echo "nope not bob"
+    fi
+    session5$ ./isitbob "bob"
+    hey it is bob
+    session5$ ./isitbob "notbob"
+    nope not bob
+
+----------------------------------------------------------------------------
+
+-> The test Command <-
+======================
+
+There is an alternate form of the `test` command that is much more
+common in scripts, and it takes the form of `[ condition ]`
+
+    session5$ cat isitbob2
+    if [ $1 = "bob" ]
+    then
+        echo "hey it is bob"
+    else
+        echo "nope not bob"
+    fi
+    session5$ ./isitbob2 bob
+    hey it is bob
+    session5$ ./isitbob2 jane
+    nope not bob
+
+
+----------------------------------------------------------------------------
+
+-> The test Command <-
+======================
+
+Number operations
+
+*a* -eq *b* | numbers *a* and *b* are equal
+*a* -ne *b* | numbers *a* and *b* are not equal
+*a* -ge *b* | number *a* is greater or equal to *b*
+*a* -le *b* | number *a* is less or equal to *b*
+*a* -gt *b* | number *a* is greater than *b*
+*a* -lt *b* | number *a* is less than *b*
+
+----------------------------------------------------------------------------
+
+-> The test Command <-
+======================
+
+File operations
+
+-d *file* | *file* is a directory
+-e *file* | *file* exists
+-f *file* | *file* is an ordinary file
+-L *file* | *file* is a symlink
+-r *file* | *file* is readable
+-w *file* | *file* is writable
+-x *file* | *file* is executable
+-s *file* | *file* is non-zero in size
+
+----------------------------------------------------------------------------
+
+-> And, Or, and Not <-
+======================
+
+`test` includes options for combining and negating conditions.
+
+`!` is used to negate conditions.
+`-a` provides the logical *and* for conditions.
+`-o` provides the logical *or* for conditions.
+
+`[ \! -e "../session5/session5.md" ]` is true if the file does *not* exist.
+`[ $i -gt 0 -a $i -le 10 ]` is true if `$i` is between 1 and 10.
+`[ -d $file -o -L $file ]` is true if `$file` is a directory *or* a symlink.
+
+----------------------------------------------------------------------------
+
+-> The exit Command <-
+======================
+
+The `exit` command emits an exit status from the current shell and
+terminates the process.
+
+To tell our parent process that we're exiting normally
+
+    session5$ exit 0
+
+To tell our parent process that something terrible has happened
+
+    session5$ exit 1
+    session5$ exit 127
+    session5$ exit -1
+
+----------------------------------------------------------------------------
+
+-> The elif Construct <-
+========================
+
+if *command*
+then
+  *command1*
+  *command2*
+elif *command*
+then
+  *command1*
+  *command2*
+fi
+
+----------------------------------------------------------------------------
+
+-> The elif Construct <-
+========================
+
+    session5$ cat isitbob3
+    if [ $1 = "bob" ]
+    then
+        echo "hey it is bob"
+    elif [ $1 = "BOB" ]
+    then
+        echo "OH HI BOB"
+    else
+        echo "nope not bob"
+    fi
+    session5$ ./isitbob3 bob
+    hey it is bob
+    session5$ ./isitbob3 BOB
+    OH HI BOB
+
+----------------------------------------------------------------------------
+
+-> The case Construct <-
+========================
+
+The `case` construct provides a mechanism for complex conditional
+statements. `case` statements provide pattern matching against any
+value for branching execution.
+
+case *value* in
+  *pattern1*) *command*;
+            *command*;;
+
+  *pattern2*) *command*;;
+
+  *pattern3*) *command*;
+            *command*;;
+
+  \*)        *command*;;
+
+esac
+
+----------------------------------------------------------------------------
+
+-> The case Construct <-
+========================
+
+    session5$ cat caseme
+    case $1 in
+        1) echo "you are number 1"; echo "good job.";;
+        2) echo "i like you two";;
+        [0-9]) echo "those look like numbers";;
+        "outside") echo "how about match?";;
+        *) echo "wat.";;
+    esac
+    session5$ ./caseme 1
+    you are number 1
+    good job.
+    session5$ ./caseme 2
+    i like you two
+    session5$ ./caseme 3
+    those look like numbers
+    session5$ ./caseme outside
+    how about match?
+    session5$ ./caseme dhsajkdjsakljdklsajdklsa
+    wat.
+
+----------------------------------------------------------------------------
+
+-> The && and || Constructs <-
 ==============================
 
-\\0nnn - ascii character represented by an octal number
-\\b    - backspace
-\\t    - tab
-\\c    - no line ending
-\\f    - form feed
-\\n    - new line
-\\r    - carriage return
+There are two built-in shell constructs that allow for conditional
+execution of commands base on the success or failure of their arguments.
 
-----------------------------------------------------------------------------
+The `&&` construct will only execute its right-hand argument if its
+left-hand argument is true.
 
--> Extended echo Characters <-
-==============================
+    session5$ who | grep "nate" > /dev/null && echo "nate is online"
+    nate is online
 
-    session5$ echo -e "nathan \f paul"
-    nathan
-        paul
-    session5$ echo -e "nathan \c paul"
-    nathan session5$ echo -e "nathan \b\b\b\b paul"
-    d paul
-    session5$ echo -e "nathan \055 paul"
-    nathan - paul
+The `||` construct will only execute its right-hand argument if its
+left-hand argument is false.
 
-----------------------------------------------------------------------------
-
--> The safercp Script <-
-========================
-
-Let's take a look at the `safercp` script included with this lesson to
-get an idea of what a well-rounded interactive program might look like.
-
-----------------------------------------------------------------------------
-
-    session5$ for i in a b c d e; do echo "$i" > $i; done; mkdir mydir
-    session5$ ls
-    a         c         e         safecp     session5.md
-    b         d         mydir     safercp
-    session5$ ./safercp a f
-    session5$ cat f
-    a
-    session5$ ./safercp b d
-    d already exists. Overwrite? (y/n) n
-    session5$ cat d
-    d
-    session5$ ./safercp b d
-    d already exists. Overwrite? (y/n) y
-    session5$ cat d
-    b
-    session5$ ./safercp a mydir/
-    session5$ ./safercp b c mydir/
-    session5$ ls mydir/
-    a       b       c
-    session5$ ./safercp d e f
-    Usage: safercp file1 file2
-           safercp file[s] dir
-
-----------------------------------------------------------------------------
-
--> The contacts Script <-
-=========================
-
-Let's also take a look at the `contacts` script included with this
-lesson to better understand how robust interactive shell programs are
-built by combining utility commands with interactive data input.
-
-----------------------------------------------------------------------------
-
--> The $$ Variable <-
-=====================
-
-The `$$` special variable holds the PID of the login shell for the
-current session. This is useful when writing temporary files to
-disambiguate between multiple users using the same program
-concurrently.
-
-       grep -v "$name" phonebook > /tmp/phonebook$$
-       mv /tmp/phonebook$$ phonebook
-
-----------------------------------------------------------------------------
-
--> Exit Status of read <-
-=========================
-
-The exit status of `read` is always 0, unless it receives an EOF
-(end-of-file) from standard input, or the user pressing Ctrl+D while
-reading interactively from the shell. Thus, `read` can be used as a
-test condition for reading structured data into loops or if
-statements.
-
-    session5$ echo -e "1 2\n3 4\n5 6" |
-    > while read a b
-    > do
-    >   echo $((a + b))
-    > done
-    3
-    7
-    11
-
-----------------------------------------------------------------------------
-
--> Exit Status of read <-
-=========================
-
-    session5$ while read first last number
-    > do
-    >   echo "$first $last's phone number is $number"
-    > done < phonebook
-    Albert Chiba's phone number is 973-555-2051
-    Brenda Sonars's phone number is 201-555-5972
-    Lefty Sanchez's phone number is 221-555-9282
-    Steve Govad's phone number is 210-555-7677
-    Tonya Isotalo's phone number is 739-555-9152
-
-----------------------------------------------------------------------------
-
--> The printf Command <-
-========================
-
-Tools like `cut`, `paste`, `grep` and `sed` are great for organizing
-data, but the powerhouse for modifying data's format for a different
-interpretation lies in `printf`.
-
-    session5$ printf "The hexadecimal value for %d is %x\ n" 30 30
-    The hexadecimal value for 30 is 1e
-
-    session5$ printf "The unsigned value for %d is %u\ n" –1000 –1000
-    The unsigned value for -1000 is 4294966296
-
-    session5$ printf "%50s\n" "Indented to 50 characters"
-                            Indented to 50 characters
-
-    session5$ printf "%s\t%s\n" "1" "2 3" "4" "5"
-    1       2 3
-    4       5
-
-    session5$ printf "%.1f\n" 255 3.5
-    255.0
-    3.5
-
-----------------------------------------------------------------------------
-
--> Local Variables and the Environment <-
-=========================================
-
-Variables are only visible in the environment that they are set
-in. By default, most commands will not be able to see variables that
-are not evaluated on the command line before being passed as
-arguments.
-
-    session5$ echo 'echo "The value of variable x is $x"' > nope
-    session5$ x=100
-    session5$ echo $x
-    100
-    session5$ ./nope
-    The value of variable x is
-
-    session5$ cat > nope2
-    x="cookies"
-    echo "The value of variable x is $x"
-    session5$ chmod +x nope2
-    session5$ ./nope2
-    The value of variable x is cookies
-    session5$ echo $x
-    100
-
-----------------------------------------------------------------------------
-
--> Subshells <-
-===============
-
-A *subshell* is a effectively an entirely new session of the shell
-launched by your login shell to run programs. By default, shell
-programs run in a subshell, so they maintain their own
-environment. The environment of a subshell is independent of its
-*parent* shell, so variables local to the parent shell are
-inaccessible to the subshell.
-
-
-
-|¯¯¯¯¯¯¯¯¯¯¯¯¯|
-| login shell |------------> x=100
-|_____________|
-        |
-        V
-|¯¯¯¯¯¯¯¯¯¯¯¯¯|
-|  sub shell  |------------> x=cookies
-|_____________|
-
-----------------------------------------------------------------------------
-
--> Exported Variables <-
-========================
-
-The `export` command makes variables visible to subshells launched
-from the current environment. However, any changes to the value of
-variables in a subshell are only relevant to the subshell. Variables
-are essentially copied into the new shell instance, but any assignment
-in a subshell van be considered a new local variable.
-
-    session5$ export x
-    session5$ ./nope
-    The value of variable x is 100
-    session5$ ./nope2
-    The value of variable x is cookies
-    session5$ ./nope
-    The value of variable x is 100
-
-----------------------------------------------------------------------------
-
--> Passing Variables <-
-=======================
-
-Rather than exporting variables to all subshells, variables can be set
-for specific commands when they're executed. This is done by
-prepending the command with a list of variables to set for the
-environment the subshell will run in. Variables passed in this way
-need not even be set as variables in the current environment.
-
-    session5$ echo $x
-    100
-    session5$ x=9001 ./nope
-    The value of variable x is 9001
-    session5$ unset x
-    session5$ echo $x
-
-    session5$ x=9002 ./nope
-    The value of variable x is 9002
-
-----------------------------------------------------------------------------
-
--> The source Command <-
-========================
-
-To write a program that makes changes to the current environment, one
-would need to invoke the *source* command. This is a shell built-in
-represented by `.`, though most modern shells alias this to `source`
-for convenience. Running a script via `source` runs the commands in
-the script in the current environment, not in a subshell. Thus, any
-changes made to variables in the script will effect the environment
-that remains when the script finishes.
-
-    session5$ . nope
-    The value of variable x is 100
-    session5$ . nope2
-    The value of variable x is cookies
-    session5$ echo $x
-    cookies
-
-----------------------------------------------------------------------------
-
--> The Environment <-
-=====================
-
-Having mentioned the environment no less than 11 times already, it's
-perhaps pertinent to understand what it is and where it comes
-from. The *environment* is the set of variables that tell the shell
-where to find all of the commands, files and other values that it
-needs to perform its task of allowing you to interface with the
-operating system. The `env` command, when called with no arguments,
-will print a list of the environment.
-
-    session5$ env
-    TERM_PROGRAM=iTerm.app
-    NVM_CD_FLAGS=-q
-    ANDROID_HOME=/Users/sleepynate/.android/sdk
-    TERM=xterm-256color
-    SHELL=/bin/zsh
-    NVM_PATH=/Users/sleepynate/.nvm/versions/node/v6.9.1/lib/node
-    TERM_PROGRAM_VERSION=3.0.15
-    USER=sleepynate
-    NVM_DIR=/Users/sleepynate/.nvm
-    PAGER=less
-    ...
-
-----------------------------------------------------------------------------
-
--> Profile & rc files <-
-========================
-
-When a new shell is instantiated, it sources a series of files. Some
-of these are stored in the system configuration folder `/etc`, and
-provide values relevant to working with the operating system in
-general. Others are set for specific users. When a user logs into a
-system, a shell usually sources `~/.profile`, and if it is a bash
-shell, `~/.bash_profile`. Additionally, shells may read an *rc* file
-like `~/.bashrc` to set further configure the shell. These files
-contain values like `$HOME`, `$PS1` and `$PATH`
-
-
-----------------------------------------------------------------------------
-
--> Common environment variables <-
-==================================
-
-`$HOME` stores the location of the user's home directory
-`$PS1` stores the format string for the prompt
-`$PATH` stores a colon-delimited list of where to find commands
-`$CDPATH` stores a list of places to look for relative paths
-`$TERM` stores the terminal in use
-`$TZ` stores the user's timezone
+    session5$ who | grep "janet" > /dev/null || echo "janet is online"
+    janet is online
