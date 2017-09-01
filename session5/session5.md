@@ -61,6 +61,28 @@ script as a string.
 
 ----------------------------------------------------------------------------
 
+-> The shift Command <-
+=======================
+
+The `shift` command is responsible for dequeuing the argument
+list. This is useful when dealing with a variable amount of arguments
+to a script.
+
+    beast-at-tanagra:session5 [master !?] $ cat > shiftit
+    echo "\$1 is $1 - \$2 is $2 - \$3 is $3"
+    shift
+    echo "\$1 is $1 - \$2 is $2 - \$3 is $3"
+    shift
+    echo "\$1 is $1 - \$2 is $2 - \$3 is $3"
+    shift
+    beast-at-tanagra:session5 [master !?] $ chmod +x shiftit
+    beast-at-tanagra:session5 [master !?] $ ./shiftit a b c
+    $1 is a - $2 is b - $3 is c
+    $1 is b - $2 is c - $3 is
+    $1 is c - $2 is  - $3 is
+
+----------------------------------------------------------------------------
+
 -> Exercise <-
 ==============
 
@@ -240,6 +262,17 @@ common in scripts, and it takes the form of `[ condition ]`
     session5$ ./isitbob2 jane
     nope not bob
 
+----------------------------------------------------------------------------
+
+-> Exercise <-
+==============
+
+Modify the script that adds entries to the phonebook such that entries
+of an invalid format cannot be added.
+
+- No blank names
+- No blank phone numbers
+- Phone numbers formatted correctly
 
 ----------------------------------------------------------------------------
 
@@ -338,6 +371,18 @@ fi
     hey it is bob
     session5$ ./isitbob3 BOB
     OH HI BOB
+
+----------------------------------------------------------------------------
+
+-> Exercise <-
+==============
+
+Modify the scripts which add and remove entries from the phonebook to
+display appropriate error messages if used incorrectly.
+
+- phonebook file doesn't exist
+- Attempts to remove non-existant entries
+- Attempts to add entries of invalid formats
 
 ----------------------------------------------------------------------------
 
