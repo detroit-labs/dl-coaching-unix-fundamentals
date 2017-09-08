@@ -1,0 +1,16 @@
+while getopts mdyf: option
+do
+    case "$option"
+    in
+        d) echo -n "$(date +%e) ";;
+        m) echo -n "$(date +%b) ";;
+        y) echo -n "$(date +%Y) ";;
+        f) echo -n $(date +"$OPTARG");;
+        \?) echo "Usage: dateopts2 [-m] [-d] [-y] [-f format]";
+            echo "-d print the day";
+            echo "-m print the month";
+            echo "-y print the year";
+            echo "-f fmt prints the results of providing the fmt string to date";;
+    esac
+done
+echo

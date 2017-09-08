@@ -1,0 +1,27 @@
+for opt in "$@"
+do
+    if [ $opt = "-d" ]
+    then
+        echo -n "$(date +'%e') "
+    elif [ $opt = "-m" ]
+    then
+        echo -n "$(date +'%b') "
+    elif [ $opt = "-y" ]
+    then
+        echo -n "$(date +'%Y') "
+    elif [ $opt = "-f" ]
+    then
+        FMTNEXT=true
+    elif [ $FMTNEXT = true ]
+    then
+        unset FMTNEXT
+        echo -n "$(date +$opt)"
+    else
+        echo "Usage: dateopts2 [-m] [-d] [-y] [-f format]"
+        echo "-d print the day"
+        echo "-m print the month"
+        echo "-y print the year"
+        echo "-f fmt prints the results of providing the fmt string to date"
+    fi
+done
+echo

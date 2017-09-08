@@ -1,0 +1,6 @@
+echo "running $# files"
+for file in $*
+do
+    echo "running $file"
+    #do something
+done

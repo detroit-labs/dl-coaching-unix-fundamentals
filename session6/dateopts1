@@ -1,0 +1,16 @@
+for opt in "$@"
+do
+    if [ $opt = "-d" ]
+    then
+        echo -n "$(date +'%e') "
+    elif [ $opt = "-m" ]
+    then
+        echo -n "$(date +'%b') "
+    elif [ $opt = "-y" ]
+    then
+        echo -n "$(date +'%Y') "
+    else
+        echo -n $(date +"$*")
+    fi
+done
+echo
