@@ -487,7 +487,6 @@ to a `-f` option and instead printing a usage message if there are no options.
             echo "-f fmt prints the results of providing the fmt string to date"
         fi
     done
-    echo
 
 ----------------------------------------------------------------------------
 
