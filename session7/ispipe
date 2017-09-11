@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+if [ -t 1 ]
+then
+    echo You are not redirecting my output
+else
+    echo You are not redirecting my output
+fi
+
+if [ -t 0 ]
+then
+    echo You are not piping me input
+else
+    while read -r line ; do
+        echo "You sent me the line: $line"
+    done
+fi

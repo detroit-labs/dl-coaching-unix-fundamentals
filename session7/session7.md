@@ -198,6 +198,60 @@ statements.
 
 ----------------------------------------------------------------------------
 
+-> enumerate <-
+===============
+
+write a script which called `enumerate` which enumerates the lines of
+files provided to it as arguments.
+
+----------------------------------------------------------------------------
+
+-> `test` and the 0 file descriptor <-
+======================================
+
+One feature of `test` that we didn't cover previously is the ability
+to detect which *file descriptors* are open. There are a number of
+applications of such a test, however for the purposes of dealing with
+interactive versus automatic I/O, such a test is most useful for
+detecting whether or not the shell is being piped input from *stdin*
+or piping output to *stdout*.
+
+The standard file descriptor for *stdin* is `0`.
+The standard file descriptor for *stdout* is `1`.
+
+`[ -t 0 ]` exits 0 if *stdin* is connected to an terminal and NOT the script.
+
+----------------------------------------------------------------------------
+
+-> `test` and the 0 file descriptor <-
+======================================
+
+    session7$ cat ispipe
+    #!/usr/bin/env bash
+    if [ -t 1 ]
+    then
+        echo You are not redirecting my output
+    else
+        echo You are not redirecting my output
+    fi
+
+    if [ -t 0 ]
+    then
+        echo You are not piping me input
+    else
+        while read -r line ; do
+            echo "You sent me the line: $line"
+        done
+    fi
+
+-> enumerate <-
+===============
+
+Modify the `enumerate` program such that it can either read files
+provided as arguments, or read directly from *stdin*.
+
+----------------------------------------------------------------------------
+
 -> The printf Command <-
 ========================
 
