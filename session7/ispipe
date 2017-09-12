@@ -3,7 +3,7 @@ if [ -t 1 ]
 then
     echo You are not redirecting my output
 else
-    echo You are not redirecting my output
+    echo You are redirecting my output
 fi
 
 if [ -t 0 ]
