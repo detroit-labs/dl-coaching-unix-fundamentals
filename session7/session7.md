@@ -232,7 +232,7 @@ The standard file descriptor for *stdout* is `1`.
     then
         echo You are not redirecting my output
     else
-        echo You are not redirecting my output
+        echo You are redirecting my output
     fi
 
     if [ -t 0 ]
@@ -243,6 +243,8 @@ The standard file descriptor for *stdout* is `1`.
             echo "You sent me the line: $line"
         done
     fi
+
+----------------------------------------------------------------------------
 
 -> enumerate <-
 ===============
