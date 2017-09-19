@@ -116,7 +116,7 @@ would need to invoke the *source* command. This is a shell built-in
 represented by `.`, though most modern shells alias this to `source`
 for convenience. Running a script via `source` runs the commands in
 the script in the current environment, not in a subshell. Thus, any
-changes made to variables in the script will effect the environment
+changes made to variables in the script will affect the environment
 that remains when the script finishes.
 
     session8$ . nope
