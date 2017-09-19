@@ -75,7 +75,7 @@ The `export` command makes variables visible to subshells launched
 from the current environment. However, any changes to the value of
 variables in a subshell are only relevant to the subshell. Variables
 are essentially copied into the new shell instance, but any assignment
-in a subshell van be considered a new local variable.
+in a subshell can be considered a new local variable.
 
     session8$ export x
     session8$ ./nope
