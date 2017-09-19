@@ -27,20 +27,20 @@ in. By default, most commands will not be able to see variables that
 are not evaluated on the command line before being passed as
 arguments.
 
-    session5$ echo 'echo "The value of variable x is $x"' > nope
-    session5$ x=100
-    session5$ echo $x
+    session8$ echo 'echo "The value of variable x is $x"' > nope
+    session8$ x=100
+    session8$ echo $x
     100
-    session5$ ./nope
+    session8$ ./nope
     The value of variable x is
 
-    session5$ cat > nope2
+    session8$ cat > nope2
     x="cookies"
     echo "The value of variable x is $x"
-    session5$ chmod +x nope2
-    session5$ ./nope2
+    session8$ chmod +x nope2
+    session8$ ./nope2
     The value of variable x is cookies
-    session5$ echo $x
+    session8$ echo $x
     100
 
 ----------------------------------------------------------------------------
@@ -77,12 +77,12 @@ variables in a subshell are only relevant to the subshell. Variables
 are essentially copied into the new shell instance, but any assignment
 in a subshell van be considered a new local variable.
 
-    session5$ export x
-    session5$ ./nope
+    session8$ export x
+    session8$ ./nope
     The value of variable x is 100
-    session5$ ./nope2
+    session8$ ./nope2
     The value of variable x is cookies
-    session5$ ./nope
+    session8$ ./nope
     The value of variable x is 100
 
 ----------------------------------------------------------------------------
@@ -96,14 +96,14 @@ prepending the command with a list of variables to set for the
 environment the subshell will run in. Variables passed in this way
 need not even be set as variables in the current environment.
 
-    session5$ echo $x
+    session8$ echo $x
     100
-    session5$ x=9001 ./nope
+    session8$ x=9001 ./nope
     The value of variable x is 9001
-    session5$ unset x
-    session5$ echo $x
+    session8$ unset x
+    session8$ echo $x
 
-    session5$ x=9002 ./nope
+    session8$ x=9002 ./nope
     The value of variable x is 9002
 
 ----------------------------------------------------------------------------
@@ -119,11 +119,11 @@ the script in the current environment, not in a subshell. Thus, any
 changes made to variables in the script will effect the environment
 that remains when the script finishes.
 
-    session5$ . nope
+    session8$ . nope
     The value of variable x is 100
-    session5$ . nope2
+    session8$ . nope2
     The value of variable x is cookies
-    session5$ echo $x
+    session8$ echo $x
     cookies
 
 ----------------------------------------------------------------------------
@@ -139,7 +139,7 @@ needs to perform its task of allowing you to interface with the
 operating system. The `env` command, when called with no arguments,
 will print a list of the environment.
 
-    session5$ env
+    session8$ env
     TERM_PROGRAM=iTerm.app
     NVM_CD_FLAGS=-q
     ANDROID_HOME=/Users/sleepynate/.android/sdk
