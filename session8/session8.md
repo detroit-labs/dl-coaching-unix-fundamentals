@@ -75,7 +75,7 @@ The `export` command makes variables visible to subshells launched
 from the current environment. However, any changes to the value of
 variables in a subshell are only relevant to the subshell. Variables
 are essentially copied into the new shell instance, but any assignment
-in a subshell van be considered a new local variable.
+in a subshell can be considered a new local variable.
 
     session8$ export x
     session8$ ./nope
@@ -116,7 +116,7 @@ would need to invoke the *source* command. This is a shell built-in
 represented by `.`, though most modern shells alias this to `source`
 for convenience. Running a script via `source` runs the commands in
 the script in the current environment, not in a subshell. Thus, any
-changes made to variables in the script will effect the environment
+changes made to variables in the script will affect the environment
 that remains when the script finishes.
 
     session8$ . nope
