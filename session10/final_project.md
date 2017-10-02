@@ -12,7 +12,7 @@ Requirements
 ------------
 
 1. Your program should store records for your catalog in a plain-text
-   file (hereby, "the catalog file". The format of this file is up to
+   file (hereby, "the catalog file"). The format of this file is up to
    you based on the needs of the kinds of records you are storing, but
    use your best judgment based on your experience with the Unix text
    tools as discussed in the coursework.
