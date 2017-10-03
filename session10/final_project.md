@@ -89,7 +89,10 @@ Requirements
     asking whether they would like the file created for them. If they
     answer negatively, exit with a status code of 1. If they answer
     positively, attempt to create the file, and if the file could not be
-    created, exit with a status code of 1.
+    created, exit with a status code of 1. If your program is running
+    via command-line arguments or called with options (that is, not
+    interactively) and the catalog file does not exist, exit with a
+    status code of 1.
 14. Your program should allow adding records without the use of an
     interactive shell to facilitate interaction with continuous
     integration or other automation. If your program is called from
@@ -115,9 +118,9 @@ Scoring
 
 Each of the above 15 requirements will be assessed with a point value:
 
-2 points - This requirement was completed
-1 point - This requirement was partially completed or did not function
+* 2 points - This requirement was completed
+* 1 point - This requirement was partially completed or did not function
 as outlined.
-0 points - This requirement was not completed.
+* 0 points - This requirement was not completed.
 
 A score of 15 will be considered passing.
