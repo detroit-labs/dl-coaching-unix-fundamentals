@@ -99,9 +99,10 @@ Requirements
     the command-line with the `-a` option and no other options, it
     should display a usage message on how to add records via a
     combination of options and/or arguments. What those other command
-    line options and/or arguments are is up to you, so feel free to
-    choose options that are fitting to your program. For example, a
-    program that catalogs favorite pizza toppings might include:
+    line options and/or arguments are as well as the format is up to
+    you, so feel free to choose options and a format that are fitting
+    to your program. For example, a program that catalogs favorite
+    pizza toppings might include:
 
         toppings -a "Onions" -r 4 -c "Mushrooms, Olives, Green Peppers"
 
